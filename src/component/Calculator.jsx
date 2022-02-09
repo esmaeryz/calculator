@@ -7,7 +7,7 @@ const Calculator = () => {
         try {
             setVal(val.slice(0, -1))
         } catch (error) {
-            
+            setVal("")
         }
     }
 
@@ -15,13 +15,13 @@ const Calculator = () => {
         try {
             setVal(eval(val));
         } catch (error) {
-            
+            setVal("Error")
         }
     }
 
     return (
         <div>
-            <div className="container">
+            <div className="container my-2">
                 <div className="row">
                     <div className="col-12">
                         <h1 className="display-6 fw-bolder text-center 
@@ -31,10 +31,11 @@ const Calculator = () => {
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-4">
-                        <div class="card border-primary mb-3">
+                        <div class="card mb-3 pt-3 shadow ">
                             <div class="card-body text-primary">
-                                <input type="text" className="form-control form-control-lg mb-4
-                                text-center bg-light fs-4 text-primary shadow" value={val} />
+                                <input type="number" className="form-control form-control-lg mb-4
+                                text-center bg-light fs-4 text-primary shadow" value={val} onChange={(e)
+                                => setVal(e.target.value)} />
                                 <div className="row">
                                     <div className="col-3">
                                         <button className="btn btn-light text-primary shadow p-4
